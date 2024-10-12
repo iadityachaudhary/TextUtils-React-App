@@ -6,11 +6,16 @@ export default function Alert(props) {
         return lower.charAt(0).toUpperCase() + lower.slice(1);
     }
   return (
-    <div>
-    {props.alert && (<div class={`alert alert-${props.alert.type} alert-dismissible fade show`} role="alert">
-        <strong>{capitalise(props.alert.type)}</strong> : {props.alert.msg}
-    </div>
-    )}
-    </div>
+    <div style={{ position: 'relative', minHeight: '50px' }}> {/* Make container relative */}
+            {props.alert && (
+                <div 
+                    className={`alert alert-${props.alert.type} alert-dismissible fade show`} 
+                    role="alert" 
+                    style={{ position: 'absolute', top: 0, width: '100%' }} // Position alert absolutely
+                >
+                    <strong>{capitalise(props.alert.type)}</strong> : {props.alert.msg}
+                </div>
+            )}
+        </div>
   )
 }

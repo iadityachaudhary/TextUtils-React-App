@@ -41,7 +41,7 @@ export default function TextForm(props) {
         <button className="btn btn-primary mx-2" onClick={handleClear}>Clear Text</button>
         <div className="continer my-3" style={{color:props.mode==='dark'?'white':'black'}}>
           <h3>Your Text Summary</h3>
-          <p>{text.split("").length} Words & {text.length} Characters</p>
+          <p>{text.split(/\s+/).filter((element)=>{return element.length!==0}).length} Words & {text.length} Characters</p>
         </div>
     </div>
   )
